@@ -104,6 +104,7 @@
                             </StackPanel>
                             <CheckBox Grid.Column="1"
                                       x:Name="OptInToggle"
+                                      Style="{StaticResource ToggleSwitch}"
                                       VerticalAlignment="Center"
                                       Checked="OptInToggle_Checked"
                                       Unchecked="OptInToggle_Unchecked" />

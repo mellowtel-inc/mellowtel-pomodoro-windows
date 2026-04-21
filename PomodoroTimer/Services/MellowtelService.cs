@@ -45,17 +45,6 @@ public sealed class MellowtelService
 
     public string NodeId => _sdk.GetNodeId();
 
-    // True once the user has answered the consent question at least once.
-    // Drives whether we show the first-launch prompt.
-    public bool HasCompletedFirstRun
-    {
-        get
-        {
-            var (_, optInDate, optOutDate) = _sdk.GetOptInDetails();
-            return optInDate is not null || optOutDate is not null;
-        }
-    }
-
     public async Task InitializeAsync()
     {
         _cts = new CancellationTokenSource();

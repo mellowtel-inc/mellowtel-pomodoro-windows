@@ -32,9 +32,9 @@ public partial class App : Application
         MainWindow = main;
         main.Show();
 
-        // First-launch consent: we only prompt once. On subsequent launches
-        // users change their mind through Settings.
-        if (!Mellowtel.HasCompletedFirstRun)
+        // Prompt on every launch while sharing is off. Once the user opts in
+        // we stop asking; they can still opt out again from Settings.
+        if (!Mellowtel.IsOptedIn)
         {
             await Mellowtel.ShowConsentAndOptInAsync(main);
         }
