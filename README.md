@@ -71,7 +71,3 @@ Everything else in this codebase is UX wrapping around those calls.
 
 - [Mellowtel Windows docs](https://docs.mellowtel.com/desktop-app/windows)
 - [Mellowtel Windows SDK on GitHub](https://github.com/mellowtel-inc/mellowtel-windows)
-
-## License
-
-MIT — copy any part into your own project. The Mellowtel SDK has its own license in the SDK repo.
