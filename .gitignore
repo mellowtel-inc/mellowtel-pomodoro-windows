@@ -1,0 +1,14 @@
+## Build output
+bin/
+obj/
+out/
+
+## Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+## Local config — never commit the real publishable key
+appsettings.json
+PomodoroTimer/appsettings.json

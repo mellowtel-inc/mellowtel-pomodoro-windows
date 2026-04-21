@@ -1,0 +1,142 @@
+<Window x:Class="PomodoroTimer.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings"
+        Height="560" Width="460"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Settings"
+                   FontSize="22" FontWeight="SemiBold"
+                   Foreground="{StaticResource TextBrush}"
+                   Margin="0,0,0,20" />
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!-- Timer section -->
+                <Border Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="10" Padding="20" Margin="0,0,0,16">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="12" ShadowDepth="1" Opacity="0.06" />
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="Timer" FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextBrush}" Margin="0,0,0,12" />
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Focus (minutes)"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource TextBrush}" />
+                            <TextBox Grid.Column="1" x:Name="WorkMinutesBox"
+                                     Padding="8" HorizontalContentAlignment="Center" />
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Break (minutes)"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource TextBrush}" />
+                            <TextBox Grid.Column="1" x:Name="BreakMinutesBox"
+                                     Padding="8" HorizontalContentAlignment="Center" />
+                        </Grid>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Sessions per cycle"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource TextBrush}" />
+                            <TextBox Grid.Column="1" x:Name="SessionsBox"
+                                     Padding="8" HorizontalContentAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Mellowtel section -->
+                <Border Background="{StaticResource SurfaceBrush}"
+                        CornerRadius="10" Padding="20">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="12" ShadowDepth="1" Opacity="0.06" />
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="Privacy &amp; Bandwidth Sharing"
+                                   FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+
+                        <TextBlock TextWrapping="Wrap" FontSize="12"
+                                   Foreground="{StaticResource MutedTextBrush}"
+                                   Margin="0,0,0,14">
+                            This app uses Mellowtel to share a small fraction of your unused bandwidth.
+                            No personal data is collected. You can turn this off any time.
+                        </TextBlock>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock x:Name="OptInStatusLabel"
+                                           FontSize="13" FontWeight="SemiBold"
+                                           Foreground="{StaticResource TextBrush}" />
+                                <TextBlock x:Name="OptInHintLabel"
+                                           FontSize="11"
+                                           Foreground="{StaticResource MutedTextBrush}" />
+                            </StackPanel>
+                            <CheckBox Grid.Column="1"
+                                      x:Name="OptInToggle"
+                                      VerticalAlignment="Center"
+                                      Checked="OptInToggle_Checked"
+                                      Unchecked="OptInToggle_Unchecked" />
+                        </Grid>
+
+                        <Separator Margin="0,16,0,12" />
+
+                        <StackPanel>
+                            <TextBlock Text="SDK info" FontSize="11"
+                                       Foreground="{StaticResource MutedTextBrush}"
+                                       Margin="0,0,0,4" />
+                            <TextBlock x:Name="SdkVersionLabel" FontSize="11"
+                                       Foreground="{StaticResource MutedTextBrush}" />
+                            <TextBlock x:Name="NodeIdLabel" FontSize="11"
+                                       Foreground="{StaticResource MutedTextBrush}"
+                                       TextTrimming="CharacterEllipsis" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Footer buttons -->
+        <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Content="Close"
+                    Style="{StaticResource PomodoroButton}"
+                    Click="CloseButton_Click" />
+        </Grid>
+    </Grid>
+</Window>
