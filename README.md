@@ -1,3 +1,5 @@
+![Pomodoro Timer cover](./docs/images/header.svg)
+
 # Pomodoro Timer
 
 A clean, minimal Pomodoro timer for Windows. Focus, short break, repeat — and that's it.
@@ -21,15 +23,7 @@ Pomodoro Timer is funded by [Mellowtel](https://www.mellowtel.com): if you opt i
 - Visual Studio 2022+, Rider, or the `dotnet` CLI
 - A Mellowtel publishable key from [mellowtel.com](https://www.mellowtel.com)
 
-### Repo layout
-
-This project references the Mellowtel SDK by **project reference**, so it expects `mellowtel-windows` to sit next to this folder:
-
-```
-some-parent/
-├── mellowtel-windows/
-└── windows-demo-project/    ← this repo
-```
+The Mellowtel SDK is pulled from NuGet ([`Mellowtel.Win`](https://www.nuget.org/packages/Mellowtel.Win)) — no need to clone the SDK repo alongside this one.
 
 ### Build and run
 
@@ -38,7 +32,8 @@ some-parent/
 cp PomodoroTimer/appsettings.example.json PomodoroTimer/appsettings.json
 # then edit PomodoroTimer/appsettings.json
 
-# 2. Build and run
+# 2. Restore, build, and run (first restore will fetch Mellowtel.Win from NuGet)
+dotnet restore PomodoroTimer.sln
 dotnet build PomodoroTimer.sln
 dotnet run --project PomodoroTimer
 ```
